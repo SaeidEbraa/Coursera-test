@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-charcoal: #172125;
+    --color-charcoal-secondary: #202A2E;
+    --color-gold: #D8B86A;
+    --color-cream: #F4E8C9;
+    --color-canvas: #F7F6F2;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #F7F6F2;
+    color: #172125;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jakarta), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Focus states for accessibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #D8B86A;
+    outline-offset: 3px;
+  }
+
+  /* Form element resets */
+  input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto max-w-content px-6 md:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .label-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold;
+  }
+
+  .heading-1 {
+    @apply font-heading text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl;
+  }
+
+  .heading-2 {
+    @apply font-heading text-3xl font-bold leading-[1.15] tracking-tight md:text-4xl lg:text-5xl;
+  }
+
+  .heading-3 {
+    @apply font-heading text-xl font-bold leading-tight tracking-tight md:text-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-[3px] bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-[#c9a85a] hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-[3px] border border-white/40 px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-white/10;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center rounded-[3px] border border-charcoal/20 px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-charcoal hover:text-white;
+  }
+
+  .gold-line {
+    @apply h-px w-12 bg-gold;
+  }
+
+  .gold-divider {
+    @apply mx-auto h-px w-16 bg-gold;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbar for filter bar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
