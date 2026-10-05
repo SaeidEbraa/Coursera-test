@@ -38,7 +38,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               src={service.image}
               alt={service.title}
               className="h-full w-full object-cover"
-              priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/30" />
           </div>

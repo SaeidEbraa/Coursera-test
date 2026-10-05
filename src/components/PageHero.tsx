@@ -16,7 +16,6 @@ export default function PageHero({ eyebrow, title, description, image, alt }: Pr
           src={image}
           alt={alt}
           className="h-full w-full object-cover"
-          priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/40" />
       </div>

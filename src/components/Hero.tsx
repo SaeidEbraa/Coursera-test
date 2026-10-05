@@ -11,7 +11,6 @@ export default function Hero() {
           src={IMAGES.hero}
           alt="Modern renovated living room with large windows and natural light"
           className="h-full w-full object-cover"
-          priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/60 to-charcoal/20" />
       </div>

@@ -41,7 +41,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             src={post.image}
             alt={post.title}
             className="absolute inset-0 h-full w-full object-cover"
-            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/50 to-charcoal/30" />
         </section>
