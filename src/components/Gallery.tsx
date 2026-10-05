@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { GALLERY_ITEMS, GALLERY_CATEGORIES } from '@/lib/data';
+import { PORTFOLIO_ITEMS, PORTFOLIO_CATEGORIES } from '@/lib/data';
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -10,8 +10,8 @@ export default function Gallery() {
 
   const filteredItems =
     activeCategory === 'All'
-      ? GALLERY_ITEMS
-      : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
+      ? PORTFOLIO_ITEMS
+      : PORTFOLIO_ITEMS.filter((item) => item.category === activeCategory);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
@@ -45,27 +45,15 @@ export default function Gallery() {
   return (
     <section className="bg-canvas section-padding">
       <div className="container-content">
-        <div className="mb-10 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-px w-10 bg-gold" />
-            <span className="label-eyebrow">Portfolio</span>
-            <span className="h-px w-10 bg-gold" />
-          </div>
-          <h2 className="heading-2 text-charcoal">See Our Work</h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-charcoal/65">
-            Take a look at some of our recent painting, decorating and renovation projects.
-          </p>
-        </div>
-
         {/* Filter buttons */}
         <div className="no-scrollbar mb-10 flex gap-2 overflow-x-auto pb-2 sm:justify-center sm:flex-wrap">
-          {GALLERY_CATEGORIES.map((cat) => (
+          {PORTFOLIO_CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`whitespace-nowrap rounded-[3px] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
                 activeCategory === cat
-                  ? 'bg-gold text-charcoal'
+                  ? 'bg-gold text-white'
                   : 'border border-charcoal/15 text-charcoal/60 hover:border-gold hover:text-charcoal'
               }`}
             >
@@ -84,14 +72,14 @@ export default function Gallery() {
             >
               <img
                 src={item.image}
-                alt={item.title}
+                alt={`${item.title} - ${item.location}`}
                 loading="lazy"
                 className="w-full transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute inset-x-0 bottom-0 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold">{item.category}</span>
-                <h3 className="mt-1 font-heading text-base font-bold text-white">{item.title}</h3>
+                <h3 className="font-heading text-base font-bold text-white">{item.title}</h3>
+                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-gold">{item.location}</p>
               </div>
             </button>
           ))}
@@ -105,7 +93,7 @@ export default function Gallery() {
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
-          aria-label="Image gallery"
+          aria-label="Portfolio gallery"
         >
           <button
             className="absolute right-4 top-4 text-white/80 transition-colors hover:text-white"
@@ -131,14 +119,14 @@ export default function Gallery() {
           <figure className="max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <img
               src={filteredItems[lightboxIndex].image}
-              alt={filteredItems[lightboxIndex].title}
+              alt={`${filteredItems[lightboxIndex].title} - ${filteredItems[lightboxIndex].location}`}
               className="max-h-[80vh] w-auto rounded-[3px] object-contain"
             />
             <figcaption className="mt-4 text-center">
+              <p className="text-white">{filteredItems[lightboxIndex].title}</p>
               <span className="text-xs font-semibold uppercase tracking-wider text-gold">
-                {filteredItems[lightboxIndex].category}
+                {filteredItems[lightboxIndex].location}
               </span>
-              <p className="mt-1 text-white">{filteredItems[lightboxIndex].title}</p>
             </figcaption>
           </figure>
         </div>

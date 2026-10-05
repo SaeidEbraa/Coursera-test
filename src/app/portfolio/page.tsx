@@ -7,22 +7,23 @@ import CTASection from '@/components/CTASection';
 import { IMAGES } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Our Work',
+  title: 'Portfolio',
   description:
-    'Browse our portfolio of recent painting, decorating and renovation projects across North Kent and London.',
+    'Browse our portfolio of recent renovation, building, and custom joinery projects across Canberra and Queanbeyan.',
 };
 
-export default function OurWorkPage() {
+export default function PortfolioPage() {
   return (
     <>
       <Navbar />
       <main>
         <PageHero
           eyebrow="Portfolio"
-          title="See Our Work"
-          description="Take a look at some of our recent painting, decorating and renovation projects."
-          image={IMAGES.hero}
-          alt="Beautifully renovated interior space"
+          title="Selected Projects That We Really Want To Show You"
+          description="Take a look at some of our recent renovation, building, and custom joinery projects."
+          image={IMAGES.about}
+          alt="Custom home build by CanDo House"
+          breadcrumb="Portfolio"
         />
         <Gallery />
         <CTASection />

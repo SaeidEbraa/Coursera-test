@@ -37,7 +37,7 @@ export default function SectionHeading({
         <a
           href={linkHref}
           className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-colors ${
-            light ? 'text-gold hover:text-[#e8c87a]' : 'text-gold hover:text-[#b89e4a]'
+            light ? 'text-gold hover:text-[#e8c87a]' : 'text-gold hover:text-[#9a7460]'
           }`}
         >
           {linkText}

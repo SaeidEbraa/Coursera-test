@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { SITE } from '@/lib/data';
 
 export default function Navbar() {
@@ -31,19 +31,21 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-charcoal shadow-lg shadow-black/20'
-          : 'bg-transparent'
+          ? 'bg-white shadow-md'
+          : 'bg-white'
       }`}
     >
-      <nav className="container-content flex h-16 items-center justify-between md:h-20" aria-label="Main navigation">
+      <nav className="container-content flex h-20 items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5" aria-label="RT Renovations home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-[3px] border border-gold font-heading text-lg font-bold text-gold">
-            RT
-          </span>
-          <span className={`font-heading text-sm font-bold uppercase tracking-[0.15em] transition-colors ${scrolled ? 'text-white' : 'text-white'}`}>
-            RT Renovations
-          </span>
+        <Link href="/" className="flex flex-col items-center gap-0.5" aria-label="CanDo House home">
+          <div className="flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-green text-white font-heading text-sm font-bold">
+              CD
+            </span>
+            <span className="font-heading text-base font-bold uppercase tracking-[0.1em] text-charcoal">
+              CanDo House
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -53,25 +55,21 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-white/90 transition-colors hover:text-gold"
+                  className="text-sm font-medium text-charcoal transition-colors hover:text-gold"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <a
-            href={SITE.phoneHref}
-            className="flex items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-[#e8c87a]"
-          >
-            <Phone className="h-4 w-4" />
-            {SITE.phone}
-          </a>
+          <Link href="/contact" className="btn-primary">
+            Request A Quote
+          </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="text-white lg:hidden"
+          className="text-charcoal lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
@@ -82,26 +80,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-charcoal lg:hidden">
+        <div className="fixed inset-0 top-20 z-40 bg-white lg:hidden">
           <div className="container-content flex flex-col gap-2 py-8">
             {SITE.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="border-b border-white/10 py-4 text-lg font-medium text-white transition-colors hover:text-gold"
+                className="border-b border-charcoal/10 py-4 text-lg font-medium text-charcoal transition-colors hover:text-gold"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <a
-              href={SITE.phoneHref}
-              className="mt-4 flex items-center gap-2 text-lg font-semibold text-gold"
+            <Link
+              href="/contact"
+              className="btn-primary mt-4"
               onClick={() => setMenuOpen(false)}
             >
-              <Phone className="h-5 w-5" />
-              {SITE.phone}
-            </a>
+              Request A Quote
+            </Link>
           </div>
         </div>
       )}

@@ -4,36 +4,29 @@ import { IMAGES } from '@/lib/data';
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-20">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={IMAGES.hero}
-          alt="Modern renovated living room with large windows and natural light"
+          alt="Modern kitchen renovation in Canberra by CanDo House"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/60 to-charcoal/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="container-content relative z-10 pt-24 pb-16">
         <div className="max-w-2xl">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-px w-10 bg-gold" />
-            <span className="label-eyebrow text-white/90">RT Renovations</span>
-          </div>
           <h1 className="font-heading text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-            Expert Painting &amp; Decorating in North Kent
+            Canberra and Queanbeyan&rsquo;s trusted renovation and building expert
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/85 md:text-xl">
-            Transforming homes with quality, care and craftsmanship.
+            We transform homes through a seamless blend of custom joinery, skilled craftsmanship, and thoughtful design.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link href="/services" className="btn-primary">
-              Our Services
-            </Link>
-            <Link href="/contact" className="btn-secondary">
-              Get a Free Quote
+          <div className="mt-10">
+            <Link href="/portfolio" className="btn-primary">
+              See Case Studies
             </Link>
           </div>
         </div>

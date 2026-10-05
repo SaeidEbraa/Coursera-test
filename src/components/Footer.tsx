@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import { SITE } from '@/lib/data';
 
 export default function Footer() {
@@ -10,15 +10,16 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-[3px] border border-gold font-heading text-lg font-bold text-gold">
-                RT
+              <span className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-green text-white font-heading text-sm font-bold">
+                CD
               </span>
-              <span className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-white">
-                RT Renovations
+              <span className="font-heading text-sm font-bold uppercase tracking-[0.1em] text-white">
+                CanDo House
               </span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/50">
-              Painting, decorating and renovation specialists serving North Kent, London and surrounding areas.
+              Canberra and Queanbeyan&rsquo;s trusted renovation and building expert, specialising in
+              custom joinery, bathroom renovations, kitchen remodels, and home extensions.
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -76,9 +77,15 @@ export default function Footer() {
                   {SITE.phone}
                 </a>
               </li>
+              <li>
+                <a href={SITE.emailHref} className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-gold">
+                  <Mail className="h-4 w-4 text-gold" strokeWidth={1.5} />
+                  {SITE.email}
+                </a>
+              </li>
               <li className="flex items-center gap-3 text-sm text-white/50">
                 <MapPin className="h-4 w-4 text-gold" strokeWidth={1.5} />
-                North Kent / London
+                {SITE.address}
               </li>
             </ul>
           </div>
@@ -86,8 +93,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-white/40">&copy; 2026 RT Renovations. All rights reserved.</p>
-          <p className="text-xs text-white/30">Painting &middot; Decorating &middot; Renovation &middot; Maintenance</p>
+          <p className="text-sm text-white/40">&copy; CanDo House. All rights reserved.</p>
         </div>
       </div>
     </footer>

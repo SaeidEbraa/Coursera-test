@@ -35,8 +35,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <>
       <Navbar />
       <main>
+        {/* Breadcrumb */}
+        <div className="breadcrumb-bar mt-20">
+          <div className="container-content">
+            <span className="breadcrumb-text">Home — Blog</span>
+          </div>
+        </div>
+
         {/* Hero image */}
-        <section className="relative h-[40vh] min-h-[300px] overflow-hidden pt-16">
+        <section className="relative h-[40vh] min-h-[300px] overflow-hidden">
           <img
             src={post.image}
             alt={post.title}
@@ -49,7 +56,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <article className="bg-canvas">
           <div className="container-content -mt-24 relative z-10 max-w-3xl pb-20">
             <div className="rounded-[3px] bg-white p-8 shadow-xl md:p-12">
-              <div className="mb-4 flex items-center gap-3 text-xs">
+              <div className="mb-4 flex flex-wrap items-center gap-3 text-xs">
                 <span className="font-semibold uppercase tracking-wider text-gold">{post.category}</span>
                 <span className="text-charcoal/30">&middot;</span>
                 <span className="flex items-center gap-1.5 text-charcoal/40">
@@ -73,7 +80,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <div className="mt-10 border-t border-charcoal/10 pt-6">
                 <Link
                   href="/blog"
-                  className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gold transition-colors hover:text-[#b89e4a]"
+                  className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gold transition-colors hover:text-[#9a7460]"
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Back to Blog

@@ -1,46 +1,44 @@
+const API = 'https://app-candohouse-api-prod-g4a9bqehgehhcdhz.australiaeast-01.azurewebsites.net/Media/Uploads/';
+
 export const SITE = {
-  name: 'RT Renovations',
-  tagline: 'Transforming Homes With Quality, Care and Craftsmanship',
-  phone: '0800 043 6989',
-  phoneHref: 'tel:08000436989',
-  email: 'info@example.com',
-  emailHref: 'mailto:info@example.com',
-  location: 'North Kent, London & surrounding areas',
+  name: 'CanDo House',
+  tagline: 'Canberra and Queanbeyan’s trusted renovation and building expert',
+  phone: '+61 0491 718 414',
+  phoneHref: 'tel:+610491718414',
+  email: 'office@candohouse.com.au',
+  emailHref: 'mailto:office@candohouse.com.au',
+  address: '234 Beasley Street, Farrer ACT 2607',
+  location: 'Canberra & Queanbeyan',
   nav: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Our Work', href: '/our-work' },
+    { label: 'Portfolio', href: '/portfolio' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact Us', href: '/contact' },
   ],
   footerServices: [
-    { label: 'Painting', href: '/services/painting-decorating' },
-    { label: 'Decorating', href: '/services/painting-decorating' },
-    { label: 'Renovations', href: '/services/renovations' },
-    { label: 'Plastering', href: '/services/plastering' },
-    { label: 'Tiling', href: '/services/tiling' },
-    { label: 'Carpentry', href: '/services/carpentry' },
-    { label: 'Maintenance', href: '/services/property-maintenance' },
+    { label: 'Home Builders', href: '/services/home-builders' },
+    { label: 'Kitchen Remodels', href: '/services/kitchen-remodels' },
+    { label: 'Bathroom Renovations', href: '/services/bathroom-renovations' },
+    { label: 'Custom Joinery', href: '/services/custom-joinery' },
+    { label: 'Decking Builders', href: '/services/decking-builders' },
+    { label: 'Pergolas Builders', href: '/services/pergola-builders' },
   ],
 };
 
-const U = 'https://images.unsplash.com/';
-
 export const IMAGES = {
-  hero: `${U}photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=1920&q=80`,
-  residential: `${U}photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=800&q=80`,
-  commercial: `${U}photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80`,
-  renovation: `${U}photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80`,
-  about: `${U}photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=80`,
-  cta: `${U}photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=1920&q=80`,
+  hero: `${API}kitchen-renovation-canberra-modern-design-candohouse.jpg`,
+  heroSecondary: `${API}kitchen-renovation-design-concept-canberra-candohouse.jpg`,
+  about: `${API}ando-house-custom-home-taylor-canberra-living-room-interior.jpg`,
+  aboutSecondary: `${API}30b182e2-6842-43be-992e-b7bd8b87692d.jpeg`,
+  cta: `${API}img-1181.jpg`,
 };
 
 export type ServiceItem = {
   slug: string;
   title: string;
   shortTitle: string;
-  icon: string;
   description: string;
   longDescription: string;
   features: string[];
@@ -49,172 +47,171 @@ export type ServiceItem = {
 
 export const SERVICES: ServiceItem[] = [
   {
-    slug: 'painting-decorating',
-    title: 'Residential & Commercial Painting and Decorating',
-    shortTitle: 'Painting & Decorating',
-    icon: 'Paintbrush',
-    description: 'High-quality painting, wallpapering and decorative finishes for homes and businesses.',
+    slug: 'home-builders',
+    title: 'Home Builders',
+    shortTitle: 'Home Builders',
+    description: 'Build your dream home with trusted custom home builders in Canberra. We design and construct homes tailored to your lifestyle, budget, and vision.',
     longDescription:
-      'Our team specialises in transforming homes and commercial spaces with high-quality painting, wallpapering and decorative finishes. We use premium materials and proven techniques to deliver flawless, long-lasting results.',
+      'Build your dream home with trusted custom home builders in Canberra. We design and construct homes tailored to your lifestyle, budget, and vision. Our experienced team handles every stage of the building process, from initial design and planning through to construction and final handover.\n\nWe take pride in delivering homes that are not only beautiful but also functional, durable, and built to last. Whether you are building a new family home, a downsizer, or an investment property, we work closely with you to bring your vision to life.\n\nOur Canberra home building team manages everything — site preparation, framing, fit-out, and finishing — ensuring quality workmanship and clear communication at every step.',
     features: [
-      'Interior and exterior painting',
-      'Wallpaper hanging and removal',
-      'Specialist decorative finishes',
-      'Surface preparation and repairs',
-      'Colour consultation and advice',
+      'Custom home design and construction',
+      'Tailored to your lifestyle and budget',
+      'Full project management from start to finish',
+      'Quality workmanship and durable materials',
+      'Clear communication throughout the build',
     ],
-    image: `${U}photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}30b182e2-6842-43be-992e-b7bd8b87692d.jpeg`,
   },
   {
-    slug: 'renovations',
-    title: 'Home Renovations',
-    shortTitle: 'Home Renovations',
-    icon: 'Home',
-    description: 'From small improvements to complete renovation projects, we deliver practical and beautiful results.',
+    slug: 'kitchen-remodels',
+    title: 'Kitchen Remodels',
+    shortTitle: 'Kitchen Remodels',
+    description: 'From layout to cabinetry, we craft kitchens tailored to your needs—blending smart design with lasting function and modern style.',
     longDescription:
-      'From small improvements to complete renovation projects, we deliver practical and beautiful results. Our experienced team manages every stage of your renovation, ensuring quality workmanship and a seamless experience from start to finish.',
+      'Upgrade your home with expert kitchen renovations in Canberra. We specialise in custom kitchen remodels that blend modern style, smart storage, and functional layouts—perfect for families, entertainers, or anyone looking to transform their space. From contemporary kitchen makeovers to full kitchen refurbishments, we do it all.\n\nOur Canberra kitchen renovation team handles every stage—from initial design and demolition to cabinetry, tiling, plumbing, and electrical works. Whether you are after a complete kitchen transformation or a small layout upgrade, we bring years of experience and attention to detail to every project.\n\nWondering about kitchen renovation cost in Canberra? We provide upfront, competitive pricing to match your budget and needs. Our transparent approach means no hidden fees—just beautiful results. Whether you are looking for a budget-friendly kitchen refurbishment or a high-end kitchen remodel, we have got you covered.',
     features: [
-      'Full home renovations',
-      'Room conversions and extensions',
-      'Project management',
-      'Design and planning support',
-      'Quality tradesperson coordination',
+      'Functional & Stylish Kitchen Designs',
+      'Kitchen Remodels for All Budgets',
+      'Best Kitchen Renovations in Canberra',
+      'Complete Kitchen Makeovers & Refurbishments',
+      'Custom cabinetry, tiling, plumbing and electrical',
     ],
-    image: `${U}photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}kitchen-renovation-canberra-modern-custom-kitchen-candohouse.jpg`,
   },
   {
-    slug: 'plastering',
-    title: 'Plastering',
-    shortTitle: 'Plastering',
-    icon: 'Trowel',
-    description: 'Full-room skimming, ceiling repairs and rendering for flawless surfaces.',
+    slug: 'bathroom-renovations',
+    title: 'Bathroom Renovations',
+    shortTitle: 'Bathroom Renovations',
+    description: 'We design and build beautiful, functional bathrooms tailored to your style and space perfect for everyday comfort and lasting value.',
     longDescription:
-      'Full-room skimming, ceiling repairs and rendering for flawless surfaces. Our plastering services create the perfect foundation for any decorating or renovation project, ensuring smooth, durable finishes that stand the test of time.',
+      'We design and build beautiful, functional bathrooms tailored to your style and space—perfect for everyday comfort and lasting value. Our Canberra bathroom renovation team handles everything from design and demolition to tiling, plumbing, and fixture installation.\n\nWhether you are updating a small family bathroom or creating a luxurious master ensuite, we deliver quality workmanship and attention to detail. We use premium materials and proven techniques to ensure your new bathroom looks great and functions perfectly for years to come.\n\nFrom modern minimalist designs to classic styles, we work with you to create a bathroom that suits your home, lifestyle, and budget.',
     features: [
-      'Full-room skimming',
-      'Ceiling repairs and plastering',
-      'External rendering',
-      'Artex removal and smoothing',
-      'Dry lining and boarding',
+      'Complete bathroom design and construction',
+      'Tiling, plumbing and fixture installation',
+      'Modern and classic styles to suit any home',
+      'Premium materials and quality workmanship',
+      'Tailored to your style, space and budget',
     ],
-    image: `${U}photo-1505873242700-f289a29e1e0f?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}img-0406.jpg`,
   },
   {
-    slug: 'tiling',
-    title: 'Tiling',
-    shortTitle: 'Tiling',
-    icon: 'Grid3x3',
-    description: 'Kitchen splashbacks, bathroom walls and floor tiling in a variety of finishes.',
+    slug: 'custom-joinery',
+    title: 'Custom Joinery',
+    shortTitle: 'Custom Joinery',
+    description: 'Built-in wardrobes, cabinets, vanities, and shelving—our custom joinery brings style and precision to every part of your home.',
     longDescription:
-      'Kitchen splashbacks, bathroom walls and floor tiling in a variety of finishes. We work with ceramic, porcelain, natural stone and mosaic tiles to create beautiful, waterproof surfaces that enhance any space.',
+      'Built-in wardrobes, cabinets, vanities, and shelving—our custom joinery brings style and precision to every part of your home. Our skilled joiners craft bespoke woodwork tailored to your space, combining functionality with beautiful finishes.\n\nFrom custom kitchen cabinetry to fitted wardrobes, entertainment units, and display shelving, we deliver joinery that enhances your home and meets your exact specifications. Every piece is made with premium materials and attention to detail.\n\nOur Canberra joinery team works closely with you to understand your storage needs, style preferences, and space constraints—ensuring the finished product is both practical and beautiful.',
     features: [
-      'Kitchen splashbacks',
-      'Bathroom wall and floor tiling',
-      'Natural stone and porcelain',
-      'Mosaic and decorative tiling',
-      'Underfloor heating installation',
+      'Built-in wardrobes and cabinetry',
+      'Custom vanities and shelving',
+      'Entertainment units and storage solutions',
+      'Premium materials and precision finishes',
+      'Tailored to your space and style',
     ],
-    image: `${U}photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}img-9651.png`,
   },
   {
-    slug: 'carpentry',
-    title: 'Carpentry & Joinery',
-    shortTitle: 'Carpentry & Joinery',
-    icon: 'Ruler',
-    description: 'Bespoke storage, shelving and cabinetry for style and practicality.',
+    slug: 'decking-builders',
+    title: 'Decking Builders Canberra',
+    shortTitle: 'Decking Builders',
+    description: 'Add value and comfort to your home with timber or composite decking—ideal for outdoor entertaining in Canberra.',
     longDescription:
-      'Bespoke storage, shelving and cabinetry for style and practicality. Our skilled carpenters and joiners craft custom woodwork tailored to your space, from fitted wardrobes to bespoke shelving and architectural joinery.',
+      'Add value and comfort to your home with timber or composite decking—ideal for outdoor entertaining in Canberra. Our decking builders design and construct decks that complement your home and lifestyle, using quality materials built to withstand the elements.\n\nWhether you want a small patio deck or a large entertaining area, we handle everything from design and framing to boarding and finishing. We work with both timber and composite materials to suit your preferences and budget.\n\nOur Canberra decking team ensures every deck is structurally sound, visually appealing, and built to last—giving you a beautiful outdoor space to enjoy for years to come.',
     features: [
-      'Bespoke shelving and storage',
-      'Fitted wardrobes and cabinetry',
-      'Skirting, architrave and doors',
-      'Custom furniture making',
-      'Wooden flooring installation',
+      'Timber and composite decking',
+      'Custom deck design and construction',
+      'Outdoor entertaining areas',
+      'Quality materials built to last',
+      'Tailored to your home and lifestyle',
     ],
-    image: `${U}photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}composite-deck-canberra-whitlam.jpg`,
   },
   {
-    slug: 'kitchen-bathroom',
-    title: 'Kitchen & Bathroom',
-    shortTitle: 'Kitchen & Bathroom',
-    icon: 'DoorClosed',
-    description: 'Beautiful upgrades and practical improvements designed around your home.',
+    slug: 'pergola-builders',
+    title: 'Pergolas Builders Canberra',
+    shortTitle: 'Pergolas Builders',
+    description: 'Enhance your outdoor space with pergolas in Canberra—built to last and tailored to your style, space, and budget.',
     longDescription:
-      'Beautiful upgrades and practical improvements designed around your home. From complete kitchen and bathroom installations to targeted upgrades, we deliver spaces that combine style, functionality and lasting quality.',
+      'Enhance your outdoor space with pergolas in Canberra—built to last and tailored to your style, space, and budget. Our pergola builders design and construct pergolas that provide shade, shelter, and a beautiful extension of your living space.\n\nFrom timber to steel-framed designs, we create pergolas that complement your home architecture and outdoor area. Whether you want a freestanding pergola or one attached to your home, we handle the entire process from design to construction.\n\nOur Canberra pergola team ensures every structure is engineered for durability, built with quality materials, and finished to the highest standard.',
     features: [
-      'Complete kitchen installations',
-      'Bathroom fitting and upgrades',
-      'Worktop and splashback fitting',
-      'Sanitaryware and fixture installation',
-      'Plumbing and electrical coordination',
+      'Timber and steel-framed pergolas',
+      'Freestanding and attached designs',
+      'Customised to your style and space',
+      'Quality materials and durable construction',
+      'Shade and shelter for outdoor living',
     ],
-    image: `${U}photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80`,
-  },
-  {
-    slug: 'property-maintenance',
-    title: 'Property Maintenance',
-    shortTitle: 'Property Maintenance',
-    icon: 'Hammer',
-    description: 'Reliable maintenance and repair services for residential and commercial properties.',
-    longDescription:
-      'Reliable maintenance and repair services for residential and commercial properties. We provide ongoing maintenance support to keep your property in excellent condition, from minor repairs to comprehensive maintenance programmes.',
-    features: [
-      'General repairs and maintenance',
-      'Preventative maintenance programmes',
-      'Emergency call-out service',
-      'Commercial property maintenance',
-      'Periodic inspections and reporting',
-    ],
-    image: `${U}photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80`,
+    image: `${API}custom-timber-pergola-installation-taylor-canberra.jpg`,
   },
 ];
 
-export type GalleryItem = {
+export type PortfolioItem = {
   id: number;
   title: string;
+  location: string;
   category: string;
   image: string;
   span: 'tall' | 'wide' | 'normal';
 };
 
-export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: 1, title: 'Modern Kitchen Renovation', category: 'Kitchens', image: `${U}photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80`, span: 'wide' },
-  { id: 2, title: 'Living Room Painting', category: 'Painting', image: `${U}photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80`, span: 'tall' },
-  { id: 3, title: 'Bathroom Refit', category: 'Bathrooms', image: `${U}photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80`, span: 'normal' },
-  { id: 4, title: 'Office Decoration', category: 'Commercial', image: `${U}photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80`, span: 'wide' },
-  { id: 5, title: 'Feature Wall Wallpapering', category: 'Decorating', image: `${U}photo-1522444195799-478538b28823?auto=format&fit=crop&w=600&q=80`, span: 'tall' },
-  { id: 6, title: 'Open-Plan Renovation', category: 'Renovation', image: `${U}photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=800&q=80`, span: 'wide' },
-  { id: 7, title: 'Kitchen Splashback Tiling', category: 'Renovation', image: `${U}photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80`, span: 'normal' },
-  { id: 8, title: 'Hallway Painting', category: 'Painting', image: `${U}photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80`, span: 'tall' },
-  { id: 9, title: 'Retail Space Decorating', category: 'Commercial', image: `${U}photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80`, span: 'wide' },
-  { id: 10, title: 'Bathroom Tiling', category: 'Bathrooms', image: `${U}photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80`, span: 'normal' },
-  { id: 11, title: 'Living Room Renovation', category: 'Renovation', image: `${U}photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=600&q=80`, span: 'tall' },
-  { id: 12, title: 'Bedroom Decorating', category: 'Decorating', image: `${U}photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=600&q=80`, span: 'normal' },
+export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  { id: 1, title: 'Bathroom Renovation', location: 'Isaacs, ACT', category: 'Bathroom', image: `${API}img-0406.jpg`, span: 'normal' },
+  { id: 2, title: 'Decking', location: 'Whitlam, Canberra', category: 'Decking', image: `${API}composite-deck-canberra-whitlam.jpg`, span: 'wide' },
+  { id: 3, title: 'New Home Build', location: 'Denman, Canberra', category: 'Home Build', image: `${API}30b182e2-6842-43be-992e-b7bd8b87692d.jpeg`, span: 'normal' },
+  { id: 4, title: 'Composite Decking & Timber Pergola', location: 'Farrer, ACT', category: 'Decking', image: `${API}img-1181.jpg`, span: 'wide' },
+  { id: 5, title: 'Kitchen Renovation', location: 'Red Hill, ACT', category: 'Kitchen', image: `${API}img-9651.png`, span: 'normal' },
+  { id: 6, title: 'Pergola Installation', location: 'Taylor, Canberra', category: 'Pergola', image: `${API}custom-timber-pergola-installation-taylor-canberra.jpg`, span: 'tall' },
+  { id: 7, title: 'Custom Home Build', location: 'Taylor, Canberra', category: 'Home Build', image: `${API}ando-house-custom-home-taylor-canberra-living-room-interior.jpg`, span: 'normal' },
+  { id: 8, title: 'Kitchen Renovation', location: 'Whitlam, Canberra', category: 'Kitchen', image: `${API}print-042.jpg`, span: 'normal' },
 ];
 
-export const GALLERY_CATEGORIES = ['All', 'Painting', 'Decorating', 'Renovation', 'Kitchens', 'Bathrooms', 'Commercial'];
+export const PORTFOLIO_CATEGORIES = ['All', 'Kitchen', 'Bathroom', 'Home Build', 'Decking', 'Pergola'];
 
 export type Testimonial = {
   quote: string;
   name: string;
-  project: string;
+  role: string;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: 'RT Renovations completely transformed our living space. The attention to detail was outstanding and the team was professional from start to finish. We could not be happier with the results.',
-    name: 'Sarah Mitchell',
-    project: 'Living Room Renovation',
+    quote: 'CanDo House transformed our outdated bathroom into a modern, functional space. Their bathroom renovation team in Canberra was professional, efficient, and attentive to every detail.',
+    name: 'Jonathon Ronan',
+    role: 'Homeowner, Canberra',
   },
   {
-    quote: 'From the initial quote to the final coat of paint, everything was handled with care and precision. The team was punctual, tidy and genuinely skilled at what they do.',
-    name: 'James Carter',
-    project: 'Full House Decorating',
+    quote: 'We hired CanDo House for a complete kitchen remodel in Queanbeyan. The custom cabinetry and layout they designed exceeded our expectations. Highly recommend their kitchen renovation services!',
+    name: 'Angela Carter',
+    role: 'Client, Queanbeyan',
   },
   {
-    quote: 'Our new kitchen is everything we hoped for and more. RT Renovations managed the entire project seamlessly, keeping us informed at every stage. Highly recommended.',
-    name: 'Emma Roberts',
-    project: 'Kitchen Renovation',
+    quote: 'The CanDo House team built our new pergola and upgraded our timber cladding. The result is both stunning and durable. Their craftsmanship truly stands out in Canberra!',
+    name: 'Skyler White',
+    role: 'Home Renovation Client',
+  },
+  {
+    quote: 'We worked with CanDo House for a custom joinery project. They built us bespoke wardrobes and shelving that perfectly matched our interior design. Great work and top-quality finish.',
+    name: 'Wade Thompson',
+    role: 'Property Owner, Gungahlin',
+  },
+  {
+    quote: 'From the initial consultation to the final touches on our laundry renovation, CanDo House delivered on time and with great communication. A reliable renovation company in Canberra.',
+    name: 'Roberto D.',
+    role: 'Client',
+  },
+  {
+    quote: 'CanDo House helped us with wall cladding and a small extension. They are the most skilled and professional renovation team we have worked with in the ACT.',
+    name: 'Ramon Singh',
+    role: 'Homeowner',
+  },
+  {
+    quote: 'Fantastic experience with CanDo House! The team did a full home extension and decking project. Their carpentry skills and attention to detail are unmatched in Canberra.',
+    name: 'Nathaniel Brooks',
+    role: 'Client, South Canberra',
+  },
+  {
+    quote: 'We are thrilled with our new custom kitchen cabinets built by CanDo House. The finish is high-end, and everything was tailored to our space. Great joinery team in Queanbeyan!',
+    name: 'Antonio Reyes',
+    role: 'Client',
   },
 ];
 
@@ -231,99 +228,137 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: 'prepare-home-professional-paint-job',
-    title: 'How to Prepare Your Home for a Professional Paint Job',
-    category: 'Painting Tips',
-    excerpt: 'Proper preparation is the key to a flawless finish. Here is everything you need to do before the painters arrive.',
-    date: '15 September 2026',
+    slug: 'decking-builders-canberra',
+    title: 'Canberra Decking Trends: Timber, Composite & Custom Outdoor Builds',
+    category: 'Decking',
+    excerpt: 'Explore the latest decking trends in Canberra — from timber and composite materials to custom outdoor builds designed for entertaining.',
+    date: '23 Nov 2025',
     readTime: '5 min read',
-    image: `${U}photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=800&q=80`,
+    image: `${API}decking-builders-canberra.jpg`,
     content: [
-      'A professional paint job starts long before the first brush touches the wall. Proper preparation ensures a smooth, durable finish that will look great for years to come.',
-      'The first step is clearing the space. Remove furniture where possible, or move it to the centre of the room and cover it with dust sheets. Take down curtains, blinds, pictures and fixtures from the walls.',
-      'Next, clean the surfaces thoroughly. Dust, grease and grime will prevent paint from adhering properly. Wash walls with a mild detergent solution and allow them to dry completely.',
-      'Fill any cracks, holes or imperfections with a quality filler. Once dry, sand the filled areas smooth. This is also the time to address any damp issues or structural problems.',
-      'Finally, protect floors, skirting boards and fixtures with quality masking tape and dust sheets. Professional painters will handle this, but knowing what to expect helps you plan your time around the work.',
+      'Outdoor living is a cornerstone of the Canberra lifestyle, and decking plays a central role in creating functional, beautiful outdoor spaces. Whether you are building a new deck or upgrading an existing one, understanding the latest trends can help you make informed decisions.',
+      'Timber decking remains a popular choice for its natural beauty and warmth. Hardwoods like spotted gum and merbau offer durability and a rich, organic finish that ages gracefully over time. With proper maintenance, a timber deck can last for decades.',
+      'Composite decking has gained significant traction in recent years. Made from a blend of wood fibres and recycled plastics, composite decking offers the look of timber without the ongoing maintenance. It is resistant to rotting, warping, and insect damage, making it an excellent long-term investment.',
+      'Custom outdoor builds are another growing trend. Rather than a simple flat deck, homeowners are opting for multi-level decks with integrated seating, planter boxes, and built-in lighting. These designs create a seamless transition between indoor and outdoor living.',
+      'When planning your deck, consider factors like sun orientation, wind protection, and how you will use the space. A well-designed deck should complement your home architecture and enhance your outdoor lifestyle for years to come.',
     ],
   },
   {
-    slug: '5-things-consider-before-renovating-kitchen',
-    title: '5 Things to Consider Before Renovating Your Kitchen',
-    category: 'Renovation Guide',
-    excerpt: 'Thinking about a new kitchen? These five considerations will help you plan a renovation that delivers on style and practicality.',
-    date: '8 September 2026',
-    readTime: '6 min read',
-    image: `${U}photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80`,
-    content: [
-      'A kitchen renovation is one of the most rewarding investments you can make in your home. But before you start, careful planning will save you time, money and stress.',
-      '1. Set a realistic budget. Kitchens can vary enormously in cost. Decide what matters most to you — worktops, appliances, cabinetry — and allocate your budget accordingly.',
-      '2. Think about how you use the space. Do you cook daily? Entertain often? Need space for a growing family? Your kitchen should be designed around your lifestyle, not just aesthetics.',
-      '3. Consider the work triangle. The relationship between the sink, hob and fridge is fundamental to a functional kitchen. Keep these elements close but not cramped.',
-      '4. Do not underestimate lighting. Layer task, ambient and accent lighting to create a space that is both practical and inviting.',
-      '5. Choose quality tradespeople. A beautiful design is only as good as its installation. Work with experienced professionals who understand every stage of the process.',
-    ],
-  },
-  {
-    slug: 'painting-trends-modern-homes',
-    title: 'Painting Trends for Modern Homes',
-    category: 'Design Trends',
-    excerpt: 'From earthy neutrals to bold accent walls, explore the painting trends shaping contemporary interiors this year.',
-    date: '1 September 2026',
+    slug: 'small-bathroom-renovations-canberra',
+    title: 'Small Bathroom Renovations in Canberra: Maximising Space Without Compromise',
+    category: 'Bathroom',
+    excerpt: 'Smart design choices that make small bathrooms feel spacious and luxurious — from layout to fixture selection.',
+    date: '23 Nov 2025',
     readTime: '4 min read',
-    image: `${U}photo-1522444195799-478538b28823?auto=format&fit=crop&w=800&q=80`,
+    image: `${API}small-bathroom-renovations-canberra.jpg`,
     content: [
-      'Paint trends evolve year by year, reflecting broader shifts in design, lifestyle and culture. Here are the directions shaping modern homes right now.',
-      'Earthy, grounding neutrals continue to dominate. Think warm terracottas, soft clays and muted greens that bring a sense of calm and connection to nature.',
-      'Deep, moody accent walls remain popular for adding drama and depth. Charcoal, navy and forest green create striking focal points in living rooms and bedrooms.',
-      'Two-tone walls are gaining traction, with a darker shade below and a lighter one above, often divided by a chair rail or wood panelling.',
-      'Matte and low-sheen finishes are preferred over high-gloss for a sophisticated, contemporary look that hides imperfections and feels premium.',
-      'Ultimately, the best trend is the one that suits your home and lifestyle. A professional decorator can help you choose colours and finishes that will stand the test of time.',
+      'A small bathroom does not have to feel cramped. With thoughtful design and the right fixture choices, even the most compact bathroom can feel spacious, luxurious, and highly functional.',
+      'The key to maximising a small bathroom is layout. Wall-mounted vanities free up floor space and create a sense of openness. Walk-in showers with frameless glass screens eliminate visual barriers, making the room feel larger than it is.',
+      'Light colours and reflective surfaces are your best friends in a small bathroom. Large-format tiles with minimal grout lines create a seamless look, while a well-placed mirror can double the perceived size of the space.',
+      'Storage is often a concern in small bathrooms. Consider recessed shelving, mirrored cabinets, and custom joinery that makes use of every available centimetre. A skilled joiner can create built-in storage that looks like it was always part of the room.',
+      'Finally, do not underestimate the impact of good lighting. Layered lighting — including task, ambient, and accent lighting — can transform a small bathroom from a functional space into a relaxing retreat.',
     ],
   },
   {
-    slug: 'choose-right-finish-walls',
-    title: 'How to Choose the Right Finish for Your Walls',
-    category: 'Painting Tips',
-    excerpt: 'Matte, eggshell, satin or gloss? Understanding paint finishes will help you make the right choice for every room.',
-    date: '22 August 2026',
+    slug: 'pergolas-canberra-outdoor-living',
+    title: 'The Rise of Pergolas in Canberra: Outdoor Living with Style & Shade',
+    category: 'Pergola',
+    excerpt: 'Why pergolas are becoming a must-have feature in Canberra homes, and how to choose the right design for your space.',
+    date: '23 Nov 2025',
     readTime: '5 min read',
-    image: `${U}photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=800&q=80`,
+    image: `${API}pergolas-canberra-outdoor-living.jpg`,
     content: [
-      'Choosing the right paint finish is just as important as choosing the right colour. The finish affects not only the look but also the durability and maintenance of your walls.',
-      'Matte finish offers a flat, non-reflective surface that hides imperfections beautifully. It is ideal for ceilings and low-traffic areas like bedrooms and dining rooms.',
-      'Eggshell has a subtle sheen that is slightly more durable than matte. It is a versatile choice for living rooms, hallways and most interior walls.',
-      'Satin finish provides a soft, velvety sheen that is easy to clean. It works well in kitchens, bathrooms and children\'s rooms where walls need regular wiping.',
-      'Semi-gloss and gloss finishes are highly reflective and very durable. They are best suited to trim, doors, skirting boards and cabinetry rather than large wall areas.',
-      'When in doubt, consult a professional. The right finish depends on the room, the surface condition, lighting and your lifestyle.',
+      'Pergolas have become one of the most popular outdoor additions in Canberra, and it is easy to see why. They provide shade, shelter, and a beautiful extension of living space — perfect for entertaining or relaxing year-round.',
+      'A well-designed pergola can transform an unused outdoor area into a functional living space. Whether attached to your home or freestanding, a pergola creates a defined outdoor room that bridges the gap between indoors and out.',
+      'Timber pergolas offer a natural, warm aesthetic that complements both traditional and contemporary homes. Hardwood posts and beams provide strength and durability, while the natural grain adds character and charm.',
+      'Steel-framed pergolas are gaining popularity for their sleek, modern look and low maintenance requirements. They can span larger areas without the need for multiple support posts, creating a more open feel.',
+      'When planning a pergola, consider orientation, roofing options, and how the space will be used. Adding features like integrated lighting, ceiling fans, or outdoor heaters can extend the usability of your pergola throughout the year.',
+    ],
+  },
+  {
+    slug: 'budget-bathroom-renovations-canberra',
+    title: 'Budget Bathroom Renovations in Canberra: Stylish Updates Without the Splurge',
+    category: 'Bathroom',
+    excerpt: 'Practical tips for achieving a beautiful bathroom renovation on a budget — without compromising on quality.',
+    date: '23 Nov 2025',
+    readTime: '4 min read',
+    image: `${API}budget-bathroom-renovations-canberra.jpg`,
+    content: [
+      'A beautiful bathroom renovation does not have to break the bank. With smart planning and strategic choices, you can achieve a stylish, functional bathroom that fits your budget.',
+      'Start by identifying what truly needs to change. If your existing layout works, keeping plumbing and electrical in place can save thousands. Focus your budget on high-impact updates like new tiles, a modern vanity, and quality fixtures.',
+      'Tile selection is one of the biggest cost variables. Large-format porcelain tiles offer a premium look at a reasonable price, while keeping grout lines to a minimum. Consider tiling only the wet areas and using waterproof paint elsewhere.',
+      'A new vanity can completely transform a bathroom. Ready-made vanities come in a wide range of styles and price points, and swapping an old vanity for a modern one is a relatively simple update that delivers big visual impact.',
+      'Do not forget the finishing touches. New tapware, a stylish mirror, and quality lighting can elevate the entire space without a major investment. These small details often make the biggest difference in how a bathroom looks and feels.',
+    ],
+  },
+  {
+    slug: 'house-renovation-canberra-guide',
+    title: 'Why House Renovations in Canberra Are More Than Just a Makeover',
+    category: 'Renovation',
+    excerpt: 'Discover how a well-planned renovation can transform your lifestyle and add lasting value to your home.',
+    date: '23 Nov 2025',
+    readTime: '6 min read',
+    image: `${API}house-renovation-canberra-guide.jpg`,
+    content: [
+      'A house renovation is about far more than a fresh coat of paint or new flooring. It is an opportunity to reimagine how you live in your home, improving functionality, comfort, and value for years to come.',
+      'The most successful renovations start with a clear understanding of how you use your space. Are you struggling with a cramped kitchen? Need an extra bedroom? Want better indoor-outdoor flow? Identifying your pain points helps prioritise where to invest.',
+      'In Canberra, many homes were built decades ago and no longer meet the needs of modern families. Opening up living areas, adding storage, and improving energy efficiency are common renovation goals that deliver both lifestyle and financial returns.',
+      'A well-executed renovation can also significantly increase your property value. Kitchen and bathroom updates consistently offer the best return on investment, while extensions and outdoor living areas add valuable square footage.',
+      'The key to a successful renovation is working with experienced professionals who understand the local market, building codes, and design trends. A trusted renovation builder will guide you through every stage, from concept to completion.',
+    ],
+  },
+  {
+    slug: 'bathroom-renovation-company-canberra',
+    title: 'Choosing the Right Bathroom Renovation Company in Canberra',
+    category: 'Bathroom',
+    excerpt: 'What to look for when selecting a bathroom renovation company — from experience and portfolio to communication.',
+    date: '23 Nov 2025',
+    readTime: '5 min read',
+    image: `${API}bathroom-renovation-company-canberra.jpg`,
+    content: [
+      'Choosing the right bathroom renovation company is one of the most important decisions you will make during your renovation journey. The right team can make the process smooth, stress-free, and rewarding.',
+      'Start by looking at their portfolio. A reputable company should have a gallery of completed projects that demonstrate their range and quality. Look for bathrooms that are similar in style and scope to what you are planning.',
+      'Experience matters. A company that has been renovating bathrooms in Canberra for years will understand local building codes, common issues with Canberra homes, and the best suppliers and tradespeople in the area.',
+      'Communication is critical. You want a company that listens to your needs, explains the process clearly, and keeps you informed at every stage. Ask about their project management approach and how they handle timelines and budgets.',
+      'Finally, check reviews and references. Hearing from past clients gives you valuable insight into what it is like to work with the company. Look for consistent themes — both positive and negative — and ask direct questions before making your decision.',
     ],
   },
 ];
 
 export const STATS = [
   { value: '10+', label: 'Years Experience' },
-  { value: '100+', label: 'Projects Completed' },
-  { value: '5★', label: 'Customer Service' },
+  { value: '200+', label: 'Projects Completed' },
+  { value: '100%', label: 'Client Satisfaction' },
 ];
 
 export const WHY_CHOOSE_US = [
   {
-    title: 'Comprehensive Expertise',
-    description: 'From plastering and flooring to full renovations, all work is handled in one place.',
+    title: 'Custom Bathroom & Kitchen Renovations',
+    description: 'Tailored solutions for every space and style, designed around your needs.',
     icon: 'Layers',
   },
   {
-    title: 'Tailored Approach',
-    description: 'We listen to your needs and adapt our work around your home, budget and lifestyle.',
+    title: 'Expert Joinery & Carpentry Services',
+    description: 'Skilled craftsmen delivering precision and quality in every detail.',
     icon: 'HeartHandshake',
   },
   {
-    title: 'Quality Craftsmanship',
-    description: 'Professional workmanship with attention to detail in every project we undertake.',
+    title: 'Tailored Home Extensions & Additions',
+    description: 'Client-centric approach to expanding your living space seamlessly.',
     icon: 'Award',
   },
   {
-    title: 'Reliable Service',
-    description: 'Clear communication, dependable scheduling and a professional finish every time.',
+    title: 'Functional Design, Quality Workmanship',
+    description: 'We blend beauty with practicality for lasting results.',
     icon: 'CalendarCheck',
   },
+];
+
+export const BRANDS = [
+  { name: 'Smeg', image: `${API}smeg-premium-kitchen-appliances-canberra-candohouse.png` },
+  { name: 'Polytec', image: `${API}polytec-custom-joinery-materials-canberra-candohouse.png` },
+  { name: 'Miele', image: `${API}miele-premium-kitchen-appliances-canberra-candohouse.png` },
+  { name: 'Laminex', image: `${API}laminex-kitchen-bathroom-materials-canberra-candohouse-png.png` },
+  { name: 'Caroma', image: `${API}caroma-bathroom-fixtures-tapware-canberra-candohouse.png` },
+  { name: 'Bosch', image: `${API}bosch-kitchen-appliances-canberra-candohouse.png` },
 ];

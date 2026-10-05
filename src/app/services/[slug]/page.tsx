@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Check, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
@@ -24,49 +24,42 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
   const service = SERVICES.find((s) => s.slug === params.slug);
   if (!service) notFound();
 
-  const currentIndex = SERVICES.findIndex((s) => s.slug === params.slug);
-  const nextService = SERVICES[(currentIndex + 1) % SERVICES.length];
-
   return (
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="relative flex min-h-[55vh] items-center overflow-hidden pt-16">
-          <div className="absolute inset-0">
-            <img
-              src={service.image}
-              alt={service.title}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/30" />
+        {/* Breadcrumb */}
+        <div className="breadcrumb-bar mt-20">
+          <div className="container-content">
+            <span className="breadcrumb-text">Home — {service.shortTitle}</span>
           </div>
-          <div className="container-content relative z-10 py-20">
-            <div className="max-w-2xl">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="h-px w-10 bg-gold" />
-                <span className="label-eyebrow text-white/90">Service</span>
-              </div>
-              <h1 className="font-heading text-3xl font-bold leading-[1.15] text-white md:text-4xl lg:text-5xl">
-                {service.title}
-              </h1>
-              <p className="mt-5 max-w-xl text-lg text-white/75">{service.description}</p>
-            </div>
-          </div>
-        </section>
+        </div>
 
-        {/* Content */}
-        <section className="bg-canvas section-padding">
+        {/* Hero */}
+        <section className="bg-white section-padding">
           <div className="container-content">
             <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
+              {/* Main content */}
               <div>
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-10 bg-gold" />
-                  <span className="label-eyebrow">Overview</span>
+                  <span className="label-eyebrow">Service</span>
                 </div>
-                <h2 className="heading-3 text-charcoal mb-6">What We Offer</h2>
-                <p className="text-base leading-relaxed text-charcoal/70">{service.longDescription}</p>
-
+                <h1 className="heading-2 text-charcoal mb-6">{service.title}</h1>
+                <p className="text-lg leading-relaxed text-charcoal/70 mb-10">{service.description}</p>
+                <div className="overflow-hidden rounded-[3px]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    className="aspect-[16/10] w-full object-cover"
+                  />
+                </div>
+                <div className="mt-10 space-y-5 text-base leading-relaxed text-charcoal/70">
+                  {service.longDescription.split('\n\n').map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
                 <div className="mt-10">
                   <h3 className="font-heading text-lg font-bold text-charcoal mb-5">Key Features</h3>
                   <ul className="space-y-3">
@@ -78,27 +71,28 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                     ))}
                   </ul>
                 </div>
-
                 <div className="mt-10">
                   <Link href="/contact" className="btn-primary">
-                    Get a Free Quote
+                    Request A Quote
                   </Link>
                 </div>
               </div>
 
               {/* Sidebar */}
               <aside className="lg:sticky lg:top-28 lg:self-start">
-                <div className="rounded-[3px] border border-charcoal/10 bg-white p-6">
-                  <h3 className="font-heading text-base font-bold text-charcoal">Other Services</h3>
-                  <ul className="mt-4 space-y-3">
-                    {SERVICES.filter((s) => s.slug !== params.slug).slice(0, 5).map((s) => (
-                      <li key={s.slug}>
+                <div className="rounded-[3px] border border-charcoal/10 bg-cream/50 p-6">
+                  <h3 className="font-heading text-base font-bold text-charcoal mb-4">All Services</h3>
+                  <ul className="space-y-1">
+                    {SERVICES.map((s) => (
+                      <li key={s.slug} className="border-b border-charcoal/10 last:border-0">
                         <Link
                           href={`/services/${s.slug}`}
-                          className="flex items-center justify-between py-2 text-sm text-charcoal/60 transition-colors hover:text-gold"
+                          className={`flex items-center justify-between py-3 text-sm transition-colors hover:text-gold ${
+                            s.slug === params.slug ? 'font-bold text-gold' : 'text-charcoal/60'
+                          }`}
                         >
                           {s.shortTitle}
-                          <ArrowRight className="h-4 w-4 opacity-0 transition-opacity" />
+                          <ArrowRight className="h-4 w-4" />
                         </Link>
                       </li>
                     ))}
@@ -114,22 +108,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   </a>
                 </div>
               </aside>
-            </div>
-
-            {/* Next service link */}
-            <div className="mt-16 border-t border-charcoal/10 pt-8">
-              <Link
-                href={`/services/${nextService.slug}`}
-                className="group flex items-center justify-between"
-              >
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-charcoal/40">Next Service</span>
-                  <p className="mt-1 font-heading text-lg font-bold text-charcoal group-hover:text-gold transition-colors">
-                    {nextService.shortTitle}
-                  </p>
-                </div>
-                <ArrowRight className="h-6 w-6 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
             </div>
           </div>
         </section>

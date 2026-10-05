@@ -4,7 +4,7 @@ import SectionHeading from './SectionHeading';
 const BENEFITS = [
   {
     title: 'Comprehensive Expertise',
-    description: 'From plastering and flooring to full renovations, all work is handled in one place.',
+    description: 'From custom joinery and carpentry to full home extensions, all work is handled in one place.',
     icon: Layers,
   },
   {
@@ -26,11 +26,11 @@ const BENEFITS = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white section-padding">
+    <section className="bg-cream section-padding">
       <div className="container-content">
         <SectionHeading
           eyebrow="Why Choose Us"
-          title="Why Choose RT Renovations?"
+          title="Why Choose CanDo House?"
           align="center"
         />
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
             const Icon = benefit.icon;
             return (
               <div key={benefit.title} className="text-center">
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-cream/40">
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-white">
                   <Icon className="h-6 w-6 text-gold" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-charcoal">{benefit.title}</h3>

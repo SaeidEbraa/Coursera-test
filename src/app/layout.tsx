@@ -16,30 +16,29 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rtrenovations.example.com'),
+  metadataBase: new URL('https://candohouse.com.au'),
   title: {
-    default: 'RT Renovations | Painting, Decorating & Renovation Specialists',
-    template: '%s | RT Renovations',
+    default: 'CanDo House | Canberra & Queanbeyan Renovation and Building Experts',
+    template: '%s | CanDo House',
   },
   description:
-    'Professional painting, decorating, renovation and property maintenance services across North Kent and London.',
+    'CanDo House is Canberra and Queanbeyan’s trusted renovation and building expert, specialising in custom joinery, bathroom renovations, kitchen remodels, and home extensions.',
   keywords: [
-    'painting and decorating',
-    'home renovations',
-    'plastering',
-    'tiling',
-    'carpentry',
-    'property maintenance',
-    'North Kent',
-    'London',
+    'kitchen renovation Canberra',
+    'bathroom renovation Canberra',
+    'custom joinery Canberra',
+    'home builders Canberra',
+    'decking builders Canberra',
+    'pergola builders Canberra',
+    'home extensions Queanbeyan',
   ],
   openGraph: {
-    title: 'RT Renovations | Painting, Decorating & Renovation Specialists',
+    title: 'CanDo House | Canberra & Queanbeyan Renovation and Building Experts',
     description:
-      'Professional painting, decorating, renovation and property maintenance services across North Kent and London.',
+      'CanDo House is Canberra and Queanbeyan’s trusted renovation and building expert, specialising in custom joinery, bathroom renovations, kitchen remodels, and home extensions.',
     type: 'website',
-    locale: 'en_GB',
-    siteName: 'RT Renovations',
+    locale: 'en_AU',
+    siteName: 'CanDo House',
   },
   robots: {
     index: true,
@@ -55,17 +54,19 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'RT Renovations',
+    name: 'CanDo House',
     description:
-      'Professional painting, decorating, renovation and property maintenance services across North Kent and London.',
-    telephone: '0800 043 6989',
-    areaServed: 'North Kent, London & surrounding areas',
-    priceRange: '$$',
+      'Canberra and Queanbeyan’s trusted renovation and building expert, specialising in custom joinery, bathroom renovations, kitchen remodels, and home extensions.',
+    telephone: '+61 0491 718 414',
+    email: 'office@candohouse.com.au',
     address: {
       '@type': 'PostalAddress',
-      addressRegion: 'Kent',
-      addressCountry: 'GB',
+      streetAddress: '234 Beasley Street, Farrer',
+      addressRegion: 'ACT',
+      addressCountry: 'AU',
+      postalCode: '2607',
     },
+    areaServed: 'Canberra, Queanbeyan & surrounding areas',
   };
 
   return (

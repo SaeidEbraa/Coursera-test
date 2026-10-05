@@ -8,12 +8,13 @@ const config: Config = {
     extend: {
       colors: {
         charcoal: {
-          DEFAULT: '#172125',
-          secondary: '#202A2E',
+          DEFAULT: '#333333',
+          secondary: '#4A4A4A',
         },
-        gold: '#D8B86A',
-        cream: '#F4E8C9',
-        canvas: '#F7F6F2',
+        gold: '#B18972',
+        green: '#39783D',
+        cream: '#F2EFEA',
+        canvas: '#F8F7F5',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

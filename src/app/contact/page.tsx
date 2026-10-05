@@ -8,7 +8,7 @@ import { IMAGES } from '@/lib/data';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Get in touch with RT Renovations for a free quote on your painting, decorating or renovation project in North Kent and London.',
+    'Get in touch with CanDo House for a free quote on your renovation, kitchen remodel, bathroom renovation, or custom joinery project in Canberra and Queanbeyan.',
 };
 
 export default function ContactPage() {
@@ -17,11 +17,12 @@ export default function ContactPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Get in Touch"
-          title="Contact Us"
+          eyebrow="Contact"
+          title="Contact Us Anytime, We Are Always There For You"
           description="Tell us about your project and we'll help you turn your ideas into reality."
-          image={IMAGES.about}
-          alt="Renovation project consultation"
+          image={IMAGES.heroSecondary}
+          alt="Contact CanDo House"
+          breadcrumb="Contact Us"
         />
         <ContactSection />
       </main>

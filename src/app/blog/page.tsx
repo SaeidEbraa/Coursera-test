@@ -9,7 +9,7 @@ import { BLOG_POSTS, IMAGES } from '@/lib/data';
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Expert tips, guides and inspiration for painting, decorating and home renovation from RT Renovations.',
+    'Expert tips, guides and inspiration for renovation, kitchen remodels, bathroom renovations, and custom joinery from CanDo House.',
 };
 
 export default function BlogPage() {
@@ -18,11 +18,12 @@ export default function BlogPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Insights & Guides"
-          title="Blog"
-          description="Expert tips, guides and inspiration for your next painting, decorating or renovation project."
+          eyebrow="Articles"
+          title="Read Our Latest Blog To Stay Updated Always"
+          description="Expert tips, guides and inspiration for your next renovation or building project."
           image={IMAGES.cta}
-          alt="Painted interior wall with professional finish"
+          alt="Renovation project by CanDo House"
+          breadcrumb="Blog"
         />
         <section className="bg-canvas section-padding">
           <div className="container-content">
