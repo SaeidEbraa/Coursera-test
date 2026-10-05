@@ -1,1 +1,6 @@
 theme: jekyll-theme-cayman
+exclude:
+  - docker-compose.base44.yml
+  - Gemfile
+  - Gemfile.lock
+  - AGENTS.md

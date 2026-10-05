@@ -1,0 +1,23 @@
+services:
+  web:
+    image: ruby:3.3
+    working_dir: /srv/jekyll
+    volumes:
+      - .:/srv/jekyll
+      - jekyll_gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    command: ["sh", "-ec", "bundle install && exec bundle exec jekyll serve --host 0.0.0.0 --port 3000 --livereload --force_polling"]
+    environment:
+      - JEKYLL_ENV=development
+      - BUNDLE_PATH=/usr/local/bundle
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:3000/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    restart: on-failure
+
+volumes:
+  jekyll_gems:
