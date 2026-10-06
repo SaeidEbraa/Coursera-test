@@ -1,93 +1,101 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
 
 export default function Testimonials() {
-  const perView = 3;
-  const maxIndex = Math.max(0, TESTIMONIALS.length - perView);
   const [current, setCurrent] = useState(0);
+  const total = TESTIMONIALS.length;
 
   const next = useCallback(() => {
-    setCurrent((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
+    setCurrent((prev) => (prev + 1) % total);
+  }, [total]);
 
   const prev = useCallback(() => {
-    setCurrent((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  }, [maxIndex]);
+    setCurrent((prev) => (prev - 1 + total) % total);
+  }, [total]);
+
+  const active = TESTIMONIALS[current];
+  const initials = active.name
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
-    <section className="bg-white section-padding">
+    <section className="section-padding bg-charcoal">
       <div className="container-content">
+        {/* Heading */}
         <div className="mb-14 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-gold" />
-            <span className="label-eyebrow">Reviews</span>
+            <span className="label-eyebrow text-gold">Reviews</span>
             <span className="h-px w-10 bg-gold" />
           </div>
-          <h2 className="heading-2 text-charcoal max-w-3xl mx-auto">
-            What Canberra &amp; Queanbeyan Homeowners Say About Our Bathroom Renovations, Kitchens &amp; Joinery Services
+          <h2 className="heading-2 text-white max-w-3xl mx-auto">
+            What Canberra &amp; Queanbeyan Homeowners Say
           </h2>
         </div>
 
-        <div className="relative">
-          {/* Slider viewport */}
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${current * (100 / perView)}%)` }}
-            >
-              {TESTIMONIALS.map((testimonial) => (
-                <div
-                  key={testimonial.name}
-                  className="w-1/3 flex-shrink-0 px-3"
-                >
-                  <div className="flex h-full flex-col rounded-[3px] border border-charcoal/10 bg-cream/40 p-7">
-                    <div className="mb-4 flex gap-1" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-gold text-gold" />
-                      ))}
-                    </div>
-                    <blockquote className="flex-1 text-base leading-relaxed text-charcoal/75">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-                    <div className="mt-6 border-t border-charcoal/10 pt-4">
-                      <div className="font-heading text-base font-bold text-charcoal">{testimonial.name}</div>
-                      <div className="mt-0.5 text-sm text-gold">{testimonial.role}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Arrow buttons */}
+        {/* Slider */}
+        <div className="relative mx-auto max-w-3xl">
+          {/* Left arrow */}
           <button
             onClick={prev}
-            aria-label="Previous reviews"
-            className="absolute -left-5 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/15 bg-white text-charcoal shadow-sm transition-all hover:border-gold hover:bg-gold hover:text-white"
+            aria-label="Previous review"
+            className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:bg-gold hover:text-charcoal sm:-left-6"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
+
+          {/* Slide content */}
+          <div className="px-12 py-8 text-center sm:px-16">
+            {/* Circular avatar */}
+            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold bg-charcoal/40 font-heading text-2xl font-bold text-gold">
+              {initials}
+            </div>
+
+            {/* Stars */}
+            <div className="mb-5 flex justify-center gap-1" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+              ))}
+            </div>
+
+            {/* Quote icon */}
+            <Quote className="mx-auto mb-4 h-8 w-8 text-gold/40" />
+
+            {/* Quote text */}
+            <blockquote className="mb-6 text-lg leading-relaxed text-white/80 sm:text-xl">
+              {active.quote}
+            </blockquote>
+
+            {/* Name and role */}
+            <div className="font-heading text-lg font-bold text-white">{active.name}</div>
+            <div className="mt-1 text-sm uppercase tracking-wider text-gold">{active.role}</div>
+          </div>
+
+          {/* Right arrow */}
           <button
             onClick={next}
-            aria-label="Next reviews"
-            className="absolute -right-5 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/15 bg-white text-charcoal shadow-sm transition-all hover:border-gold hover:bg-gold hover:text-white"
+            aria-label="Next review"
+            className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:bg-gold hover:text-charcoal sm:-right-6"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Dot indicators */}
-        <div className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+        {/* Dot pagination */}
+        <div className="mt-8 flex justify-center gap-2.5">
+          {TESTIMONIALS.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Go to review group ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                current === i ? 'w-8 bg-gold' : 'w-2 bg-charcoal/20 hover:bg-charcoal/40'
+              aria-label={`Go to review ${i + 1}`}
+              className={`h-2.5 rounded-full transition-all ${
+                current === i ? 'w-8 bg-gold' : 'w-2.5 bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
