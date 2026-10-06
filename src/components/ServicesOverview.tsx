@@ -1,10 +1,8 @@
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 
 export default function ServicesOverview() {
   return (
-    <section className="relative overflow-hidden bg-cream section-padding">
+    <section className="relative overflow-hidden bg-ink section-padding">
       <div className="container-content relative z-10">
         <SectionHeading
           eyebrow="Services"
@@ -12,6 +10,7 @@ export default function ServicesOverview() {
           description="Whether it's a complete renovation or a custom-built feature, our expert team is with you every step of the way."
           linkText="View All Services"
           linkHref="/services"
+          light
         />
       </div>
     </section>

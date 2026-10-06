@@ -17,19 +17,19 @@ export default function SectionHeading({
   linkText,
   linkHref,
   align = 'left',
-  light = false,
+  light = true,
 }: Props) {
   return (
     <div className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       {eyebrow && (
         <div className={`mb-4 flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
           <span className="h-px w-10 bg-gold" />
-          <span className={`label-eyebrow ${light ? 'text-gold' : ''}`}>{eyebrow}</span>
+          <span className="label-eyebrow">{eyebrow}</span>
         </div>
       )}
       <h2 className={`heading-2 ${light ? 'text-white' : 'text-charcoal'}`}>{title}</h2>
       {description && (
-        <p className={`mt-5 text-lg ${light ? 'text-white/70' : 'text-charcoal/65'}`}>
+        <p className={`mt-5 text-lg ${light ? 'text-white/60' : 'text-charcoal/65'}`}>
           {description}
         </p>
       )}
@@ -37,7 +37,7 @@ export default function SectionHeading({
         <a
           href={linkHref}
           className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-colors ${
-            light ? 'text-gold hover:text-[#e8c87a]' : 'text-gold hover:text-[#9a7460]'
+            light ? 'text-gold hover:text-white' : 'text-gold hover:text-[#9a7460]'
           }`}
         >
           {linkText}

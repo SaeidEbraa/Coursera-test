@@ -31,7 +31,7 @@ const SERVICES = [
 
 export default function AdditionalServices() {
   return (
-    <section className="bg-charcoal section-padding">
+    <section className="bg-ink-card section-padding">
       <div className="container-content">
         <SectionHeading
           eyebrow="More Services"
@@ -46,18 +46,18 @@ export default function AdditionalServices() {
             return (
               <div
                 key={service.title}
-                className="group rounded-[3px] border border-gold/20 bg-charcoal-secondary p-7 transition-colors hover:border-gold/50"
+                className="group rounded-[3px] border border-white/10 bg-ink-elevated p-7 transition-colors hover:border-gold/40"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[3px] border border-gold/30">
                   <Icon className="h-6 w-6 text-gold" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-white">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{service.description}</p>
+                <h3 className="font-heading text-lg font-bold uppercase text-white">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">{service.description}</p>
               </div>
             );
           })}
           {/* Filler card for grid alignment */}
-          <div className="hidden rounded-[3px] border border-gold/10 bg-charcoal-secondary/50 p-7 lg:flex lg:items-end">
+          <div className="hidden rounded-[3px] border border-white/5 bg-ink-elevated/50 p-7 lg:flex lg:items-end">
             <p className="text-sm text-white/40">
               Need something else? <span className="text-gold">Get in touch</span> — we cover it all.
             </p>

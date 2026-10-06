@@ -25,7 +25,7 @@ export default function BlogPage() {
           alt="Renovation project by CanDo House"
           breadcrumb="Blog"
         />
-        <section className="bg-canvas section-padding">
+        <section className="bg-ink-card section-padding">
           <div className="container-content">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {BLOG_POSTS.map((post) => (

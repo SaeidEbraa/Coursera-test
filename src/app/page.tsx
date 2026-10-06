@@ -20,12 +20,13 @@ export default function HomePage() {
         <ServicesOverview />
         <MainServiceCards />
         <Brands />
-        <section className="bg-canvas section-padding">
+        <section className="bg-ink section-padding">
           <div className="container-content">
             <SectionHeading
               eyebrow="Projects"
               title="Recent Renovation Projects Across Canberra & Queanbeyan"
               align="center"
+              light
             />
           </div>
         </section>

@@ -43,7 +43,7 @@ export default function Gallery() {
   }, [lightboxIndex, closeLightbox, nextImage, prevImage]);
 
   return (
-    <section className="bg-canvas section-padding">
+    <section className="bg-ink-card section-padding">
       <div className="container-content">
         {/* Filter buttons */}
         <div className="no-scrollbar mb-10 flex gap-2 overflow-x-auto pb-2 sm:justify-center sm:flex-wrap">
@@ -53,8 +53,8 @@ export default function Gallery() {
               onClick={() => setActiveCategory(cat)}
               className={`whitespace-nowrap rounded-[3px] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
                 activeCategory === cat
-                  ? 'bg-gold text-white'
-                  : 'border border-charcoal/15 text-charcoal/60 hover:border-gold hover:text-charcoal'
+                  ? 'bg-gold text-ink'
+                  : 'border border-white/15 text-white/50 hover:border-gold hover:text-white'
               }`}
             >
               {cat}
@@ -76,9 +76,9 @@ export default function Gallery() {
                 loading="lazy"
                 className="w-full transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute inset-x-0 bottom-0 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <h3 className="font-heading text-base font-bold text-white">{item.title}</h3>
+                <h3 className="font-heading text-base font-bold uppercase text-white">{item.title}</h3>
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-gold">{item.location}</p>
               </div>
             </button>
@@ -89,28 +89,28 @@ export default function Gallery() {
       {/* Lightbox */}
       {lightboxIndex !== null && filteredItems[lightboxIndex] && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
           aria-label="Portfolio gallery"
         >
           <button
-            className="absolute right-4 top-4 text-white/80 transition-colors hover:text-white"
+            className="absolute right-4 top-4 text-white/80 transition-colors hover:text-gold"
             onClick={closeLightbox}
             aria-label="Close gallery"
           >
             <X className="h-8 w-8" />
           </button>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 transition-colors hover:text-white"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 transition-colors hover:text-gold"
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
             aria-label="Previous image"
           >
             <ChevronLeft className="h-10 w-10" />
           </button>
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 transition-colors hover:text-white"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 transition-colors hover:text-gold"
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
             aria-label="Next image"
           >

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { SITE } from '@/lib/data';
 
 export default function Navbar() {
@@ -31,18 +31,18 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white shadow-md'
-          : 'bg-white'
+          ? 'bg-ink/95 shadow-lg shadow-black/30 backdrop-blur-md'
+          : 'bg-ink'
       }`}
     >
       <nav className="container-content flex h-20 items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
         <Link href="/" className="flex flex-col items-center gap-0.5" aria-label="CanDo House home">
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-green text-white font-heading text-sm font-bold">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-gold text-ink font-heading text-sm font-bold">
               CD
             </span>
-            <span className="font-heading text-base font-bold uppercase tracking-[0.1em] text-charcoal">
+            <span className="font-heading text-base font-bold uppercase tracking-[0.1em] text-white">
               CanDo House
             </span>
           </div>
@@ -55,21 +55,25 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-charcoal transition-colors hover:text-gold"
+                  className="text-sm font-medium uppercase tracking-wider text-white/70 transition-colors hover:text-gold"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/contact" className="btn-primary">
-            Request A Quote
-          </Link>
+          <a
+            href={SITE.phoneHref}
+            className="flex items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-white"
+          >
+            <Phone className="h-4 w-4" />
+            {SITE.phone}
+          </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="text-charcoal lg:hidden"
+          className="text-white lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
@@ -80,25 +84,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-white lg:hidden">
+        <div className="fixed inset-0 top-20 z-40 bg-ink lg:hidden">
           <div className="container-content flex flex-col gap-2 py-8">
             {SITE.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="border-b border-charcoal/10 py-4 text-lg font-medium text-charcoal transition-colors hover:text-gold"
+                className="border-b border-white/10 py-4 text-lg font-medium uppercase tracking-wider text-white/80 transition-colors hover:text-gold"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="btn-primary mt-4"
-              onClick={() => setMenuOpen(false)}
+            <a
+              href={SITE.phoneHref}
+              className="mt-4 flex items-center gap-2 text-base font-semibold text-gold"
             >
-              Request A Quote
-            </Link>
+              <Phone className="h-4 w-4" />
+              {SITE.phone}
+            </a>
           </div>
         </div>
       )}

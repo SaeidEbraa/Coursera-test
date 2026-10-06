@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { IMAGES } from '@/lib/data';
 
 export default function AboutSection() {
   const bullets = [
     'Custom Bathroom & Kitchen Renovations',
     'Expert Joinery & Carpentry Services',
-    'A client-centric Tailored Home Extensions & Additions',
+    'Tailored Home Extensions & Additions',
     'Functional Design, High-Quality Workmanship',
   ];
 
   return (
-    <section className="bg-white section-padding">
+    <section className="bg-ink-card section-padding">
       <div className="container-content">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Images */}
@@ -21,7 +21,7 @@ export default function AboutSection() {
                 src={IMAGES.hero}
                 alt="Kitchen renovation by CanDo House"
                 loading="lazy"
-                className="aspect-[3/4] w-full object-cover grayscale"
+                className="aspect-[3/4] w-full object-cover"
               />
             </div>
             <div className="overflow-hidden rounded-[3px]">
@@ -29,7 +29,7 @@ export default function AboutSection() {
                 src={IMAGES.aboutSecondary}
                 alt="Custom home build by CanDo House"
                 loading="lazy"
-                className="aspect-[3/4] w-full object-cover grayscale"
+                className="aspect-[3/4] w-full object-cover"
               />
             </div>
           </div>
@@ -40,10 +40,10 @@ export default function AboutSection() {
               <span className="h-px w-10 bg-gold" />
               <span className="label-eyebrow">About Us</span>
             </div>
-            <h2 className="heading-2 text-charcoal">
-              We Create Bespoke Homes with Quality Craftsmanship &amp; Functional Design
+            <h2 className="heading-2 text-white">
+              Over 10 Years of Experience Gained
             </h2>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-charcoal/70">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-white/60">
               <p>
                 CanDo House is Canberra and Queanbeyan&rsquo;s trusted renovation and building expert,
                 specializing in custom joinery, bathroom renovations, kitchen remodels, and home
@@ -59,14 +59,14 @@ export default function AboutSection() {
             <ul className="mt-8 space-y-3">
               {bullets.map((bullet) => (
                 <li key={bullet} className="flex items-center gap-3">
-                  <ArrowRight className="h-4 w-4 shrink-0 text-gold" />
-                  <span className="text-sm font-medium text-gold">{bullet}</span>
+                  <Check className="h-4 w-4 shrink-0 text-gold" strokeWidth={2.5} />
+                  <span className="text-sm font-medium text-white/80">{bullet}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-8">
               <Link href="/about" className="btn-primary">
-                Know More About Us
+                Read More
               </Link>
             </div>
           </div>

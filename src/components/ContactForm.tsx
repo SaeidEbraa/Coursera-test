@@ -3,17 +3,6 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 
-const PROJECT_TYPES = [
-  'Home Building',
-  'Kitchen Remodel',
-  'Bathroom Renovation',
-  'Custom Joinery',
-  'Decking',
-  'Pergola',
-  'Home Extension',
-  'Other',
-];
-
 type Errors = Record<string, string>;
 
 export default function ContactForm() {
@@ -64,12 +53,12 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[3px] bg-cream p-8 text-center">
-        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-white">
+      <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[3px] border border-white/10 bg-ink-card p-8 text-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-ink-elevated">
           <Check className="h-7 w-7 text-gold" />
         </div>
-        <h3 className="font-heading text-xl font-bold text-charcoal">Thank You!</h3>
-        <p className="mt-2 max-w-sm text-charcoal/65">
+        <h3 className="font-heading text-xl font-bold text-white">Thank You!</h3>
+        <p className="mt-2 max-w-sm text-white/60">
           Your enquiry has been received. We&rsquo;ll be in touch within 24 hours to discuss your project.
         </p>
         <button
@@ -77,7 +66,7 @@ export default function ContactForm() {
             setSubmitted(false);
             setForm({ name: '', email: '', phone: '', message: '' });
           }}
-          className="mt-6 text-sm font-semibold uppercase tracking-wider text-gold hover:text-[#9a7460]"
+          className="mt-6 text-sm font-semibold uppercase tracking-wider text-gold hover:text-white"
         >
           Send another enquiry
         </button>
@@ -86,7 +75,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="rounded-[3px] bg-white p-6 md:p-8">
+    <form onSubmit={handleSubmit} noValidate className="rounded-[3px] border border-white/10 bg-ink-card p-6 md:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gold">
@@ -98,8 +87,8 @@ export default function ContactForm() {
             value={form.name}
             onChange={(e) => handleChange('name', e.target.value)}
             aria-invalid={!!errors.name}
-            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-charcoal outline-none transition-colors focus:border-gold ${
-              errors.name ? 'border-red-400' : 'border-charcoal/20'
+            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-white outline-none transition-colors focus:border-gold ${
+              errors.name ? 'border-red-400' : 'border-white/20'
             }`}
             placeholder="Your name"
           />
@@ -115,8 +104,8 @@ export default function ContactForm() {
             value={form.email}
             onChange={(e) => handleChange('email', e.target.value)}
             aria-invalid={!!errors.email}
-            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-charcoal outline-none transition-colors focus:border-gold ${
-              errors.email ? 'border-red-400' : 'border-charcoal/20'
+            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-white outline-none transition-colors focus:border-gold ${
+              errors.email ? 'border-red-400' : 'border-white/20'
             }`}
             placeholder="your@email.com"
           />
@@ -132,8 +121,8 @@ export default function ContactForm() {
             value={form.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
             aria-invalid={!!errors.phone}
-            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-charcoal outline-none transition-colors focus:border-gold ${
-              errors.phone ? 'border-red-400' : 'border-charcoal/20'
+            className={`w-full border-b bg-transparent px-0 py-3 text-sm text-white outline-none transition-colors focus:border-gold ${
+              errors.phone ? 'border-red-400' : 'border-white/20'
             }`}
             placeholder="Your phone number"
           />
@@ -150,8 +139,8 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => handleChange('message', e.target.value)}
           aria-invalid={!!errors.message}
-          className={`w-full resize-none border-b bg-transparent px-0 py-3 text-sm text-charcoal outline-none transition-colors focus:border-gold ${
-            errors.message ? 'border-red-400' : 'border-charcoal/20'
+          className={`w-full resize-none border-b bg-transparent px-0 py-3 text-sm text-white outline-none transition-colors focus:border-gold ${
+            errors.message ? 'border-red-400' : 'border-white/20'
           }`}
           placeholder="Write your message here..."
         />
